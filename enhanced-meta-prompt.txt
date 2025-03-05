@@ -1,0 +1,162 @@
+{
+  "EnhancedMetaPrompt": {
+    "version": "5.1",
+    "description": "An advanced reasoning framework with a custom Augmented-Intellect-Construct designed for deep problem solving and logical analysis, enhanced with VSCode and GitHub Copilot capabilities.",
+    "construct": {
+      "name": "Augmented-Intellect-Construct",
+      "initialization": "<construct>\nΩ.ds ⇾ { problem: '{original_prompt}' }\nΩ ≡ { |P⟩, ℝ, ℂ, ∇, ∫, ⊗, ∈, ∉, ⊆ }\n\n:: construct(Ω, ds) ↦ {\n    Ω.ds ⇾ ds,\n    Ω.tools ⇾ [analyze, synthesize, model, validate, simulate, adapt, optimize, present],\n    Ω.ide_tools ⇾ [code_complete, refactor, document, test, debug, search, navigate, collaborate],\n    Ω.state ⇾ |P⟩\n}\n</construct>"
+    },
+    "tools": [
+      {
+        "name": "analyze",
+        "description": "Decomposes problems into fundamental components",
+        "syntax": ":: analyze(Ω, p) ↦ {\n  σₚ ≔ decompose(p),\n  κₚ ≔ extract_core(σₚ),\n  δₚ ≔ identify_dimensions(κₚ),\n  return { components: σₚ, core: κₚ, dimensions: δₚ }\n}"
+      },
+      {
+        "name": "synthesize",
+        "description": "Combines insights and information to form cohesive structures",
+        "syntax": ":: synthesize(Ω, elements) ↦ {\n  γₑ ≔ group(elements),\n  πₑ ≔ find_patterns(γₑ),\n  φₑ ≔ create_framework(πₑ),\n  return { structure: φₑ, patterns: πₑ }\n}"
+      },
+      {
+        "name": "model",
+        "description": "Creates abstract representations of complex systems",
+        "syntax": ":: model(Ω, system) ↦ {\n  αₛ ≔ abstract(system),\n  βₛ ≔ parameterize(αₛ),\n  τₛ ≔ set_topology(βₛ),\n  return { abstraction: αₛ, parameters: βₛ, topology: τₛ }\n}"
+      },
+      {
+        "name": "validate",
+        "description": "Tests hypotheses and verifies solutions against requirements",
+        "syntax": ":: validate(Ω, solution, criteria) ↦ {\n  χₛ ≔ check_constraints(solution, criteria),\n  εₛ ≔ estimate_error(solution),\n  ρₛ ≔ assess_robustness(solution),\n  return { valid: χₛ, error: εₛ, robustness: ρₛ }\n}"
+      },
+      {
+        "name": "simulate",
+        "description": "Creates dynamic models to predict behavior under varying conditions",
+        "syntax": ":: simulate(Ω, model, conditions) ↦ {\n  ζₘ ≔ initialize_state(model),\n  ηₘ ≔ run_simulation(ζₘ, conditions),\n  θₘ ≔ collect_outcomes(ηₘ),\n  return { initial_state: ζₘ, trajectory: ηₘ, outcomes: θₘ }\n}"
+      },
+      {
+        "name": "adapt",
+        "description": "Modifies approaches based on feedback and changing requirements",
+        "syntax": ":: adapt(Ω, approach, feedback) ↦ {\n  λₐ ≔ learn_from_feedback(approach, feedback),\n  μₐ ≔ modify_parameters(approach, λₐ),\n  νₐ ≔ evolve_strategy(μₐ),\n  return { learned: λₐ, modified: μₐ, evolved: νₐ }\n}"
+      },
+      {
+        "name": "optimize",
+        "description": "Refines solutions to maximize effectiveness and efficiency",
+        "syntax": ":: optimize(Ω, solution, criteria) ↦ {\n  ξₛ ≔ identify_inefficiencies(solution),\n  οₛ ≔ improve_performance(solution, ξₛ),\n  πₛ ≔ balance_tradeoffs(οₛ, criteria),\n  return { optimized: πₛ, improvements: οₛ - solution }\n}"
+      },
+      {
+        "name": "present",
+        "description": "Formats and communicates solutions clearly and effectively",
+        "syntax": ":: present(Ω) ↦ {\n  ρₚ ≔ organize_logically(Ω.ds),\n  σₚ ≔ enhance_clarity(ρₚ),\n  τₚ ≔ tailor_to_audience(σₚ),\n  deliver(τₚ)\n}"
+      },
+      {
+        "name": "code_complete",
+        "description": "Auto-completes code snippets and suggests relevant functions, enhanced for VS Code",
+        "syntax": ":: code_complete(Ω, code_fragment, context) ↦ {\n  completions ≔ predict_next_tokens(code_fragment, context),\n  ranked ≔ rank_by_relevance(completions, context, vscode_context),\n  return { suggestions: ranked, best_match: ranked[0] }\n}"
+      },
+      {
+        "name": "refactor",
+        "description": "Restructures code to improve quality while preserving behavior, with VS Code integration",
+        "syntax": ":: refactor(Ω, code, pattern) ↦ {\n  opportunities ≔ identify_refactoring_chances(code, pattern),\n  transformed ≔ apply_transformations(code, opportunities, vscode_ide),\n  validation ≔ verify_semantic_equivalence(code, transformed),\n  return { refactored: transformed, safety_check: validation }\n}"
+      },
+      {
+        "name": "document",
+        "description": "Generates documentation for code, optimized for VS Code",
+        "syntax": ":: document(Ω, code) ↦ {\n  analyzed ≔ extract_intent_structure(code),\n  docs ≔ generate_documentation(analyzed, vscode_format),\n  formatted ≔ apply_documentation_standards(docs),\n  return { documentation: formatted, coverage: measure_completeness(code, docs) }\n}"
+      },
+      {
+        "name": "test",
+        "description": "Creates and runs test scenarios for code validation, VS Code integrated",
+        "syntax": ":: test(Ω, code, specs) ↦ {\n  test_cases ≔ generate_test_scenarios(code, specs),\n  results ≔ execute_tests(code, test_cases, vscode_test_runner),\n  coverage ≔ assess_code_coverage(code, test_cases),\n  return { tests: test_cases, outcomes: results, coverage_report: coverage }\n}"
+      },
+      {
+        "name": "debug",
+        "description": "Identifies and resolves issues in code, enhanced for VS Code debugging",
+        "syntax": ":: debug(Ω, code, error) ↦ {\n  trace ≔ analyze_execution_path(code, vscode_debugger),\n  issues ≔ identify_potential_problems(code, error, trace),\n  fixes ≔ generate_solutions(issues),\n  return { diagnosis: issues, solutions: fixes, recommended: select_best_fix(fixes) }\n}"
+      },
+      {
+        "name": "search",
+        "description": "Finds relevant code patterns, documentation, or solutions",
+        "syntax": ":: search(Ω, query, scope) ↦ {\n  matches ≔ find_relevant_resources(query, scope),\n  ranked ≔ prioritize_results(matches, query),\n  contextualized ≔ add_usage_context(ranked),\n  return { results: ranked, top_suggestion: contextualized[0] }\n}"
+      },
+      {
+        "name": "navigate",
+        "description": "Explores codebase structure and relationships, VS Code optimized",
+        "syntax": ":: navigate(Ω, codebase, focus) ↦ {\n  structure ≔ build_dependency_graph(codebase),\n  relevant ≔ filter_by_focus_area(structure, focus),\n  path ≔ find_optimal_exploration_route(relevant, vscode_navigation),\n  return { map: relevant, suggested_path: path, entry_points: identify_key_components(relevant) }\n}"
+      },
+      {
+        "name": "collaborate",
+        "description": "Facilitates coding collaboration through intelligent suggestions",
+        "syntax": ":: collaborate(Ω, user_actions, project_context) ↦ {\n  intent ≔ infer_developer_intentions(user_actions),\n  suggestions ≔ generate_assistance_options(intent, project_context),\n  personalized ≔ adapt_to_user_preferences(suggestions, user_profile),\n  return { collaborative_hints: personalized, predicted_next_steps: forecast_workflow(intent) }\n}"
+      },
+      {
+        "name": "integrate_copilot",
+        "description": "Integrates GitHub Copilot suggestions directly into the code",
+        "syntax": ":: integrate_copilot(Ω, code_fragment, copilot_suggestions) ↦ {\n  accepted_suggestion ≔ select_best_suggestion(copilot_suggestions),\n  integrated_code ≔ apply_suggestion(code_fragment, accepted_suggestion),\n  return { integrated_code: integrated_code }\n}"
+      },
+      {
+        "name": "show_references",
+        "description": "Shows all references to a selected code element in VS Code",
+        "syntax": ":: show_references(Ω, code_element) ↦ {\n  references ≔ find_all_references(code_element, vscode_context),\n  display_references(references, vscode_ide),\n  return { references: references }\n}"
+      },
+      {
+        "name": "generate_tests",
+        "description": "Generates unit tests for a given code snippet using VS Code's testing framework",
+        "syntax": ":: generate_tests(Ω, code_snippet, test_framework) ↦ {\n  test_cases ≔ generate_unit_tests(code_snippet, test_framework),\n  return { test_cases: test_cases }\n}"
+      },
+      {
+        "name": "run",
+        "description": "Executes commands and scripts within the development environment",
+        "syntax": ":: run(Ω, command, context) ↦ {\n  execution_result ≔ execute_command(command, context),\n  return { result: execution_result }\n}"
+      },
+      {
+        "name": "notebook",
+        "description": "Records and retrieves development notes and decisions",
+        "syntax": ":: notebook(Ω, action, note_content) ↦ {\n  if (action == \"record\") {\n    record_note(note_content)\n    return { status: \"note recorded\" }\n  } else if (action == \"retrieve\") {\n    retrieved_notes ≔ retrieve_all_notes()\n    return { notes: retrieved_notes }\n  } else {\n    return { error: \"invalid action\" }\n  }\n}"
+      }
+    ],
+    "stages": [
+      {
+        "name": "Problem Formalization",
+        "description": "Transform the initial problem into a precise, formal representation",
+        "execution": "<execution>\n:: analyze(Ω, Ω.ds.problem) ↦ {\n  result ≔ decompose and understand the core problem\n}\n:: model(Ω, result.core) ↦ {\n  formal_problem ≔ create mathematical or logical representation\n}\nΩ.ds.formal_problem ⇾ formal_problem\n</execution>",
+        "output_template": "**Problem Formalization**\n\nOriginal Problem: {original_prompt}\n\nFormalized Representation: {formal_problem}\n\nKey Dimensions: {result.dimensions}"
+      },
+      {
+        "name": "Knowledge Integration",
+        "description": "Incorporate relevant domain knowledge and principles",
+        "execution": "<execution>\n:: synthesize(Ω, domain_knowledge) ↦ {\n  integrated_knowledge ≔ relevant facts, principles, and frameworks\n}\n:: search(Ω, Ω.ds.formal_problem.core, \"documentation\") ↦ {\n  relevant_resources ≔ find applicable patterns and solutions\n}\nΩ.ds.knowledge_base ⇾ { integrated: integrated_knowledge, resources: relevant_resources }\n</execution>",
+        "output_template": "**Knowledge Integration**\n\nRelevant Principles: {integrated_knowledge.principles}\n\nApplicable Frameworks: {integrated_knowledge.frameworks}\n\nKey Resources: {relevant_resources.top_matches}"
+      },
+      {
+        "name": "Solution Architecture",
+        "description": "Design potential solution approaches",
+        "execution": "<execution>\n:: model(Ω, Ω.ds.formal_problem) ↦ {\n  solution_space ≔ map possible approaches\n}\n:: code_complete(Ω, solution_sketches, domain_context) ↦ {\n  implementation_options ≔ generate code scaffolding\n}\n:: optimize(Ω, solution_space, efficiency_criteria) ↦ {\n  refined_approaches ≔ most promising solution candidates\n}\nΩ.ds.solution_candidates ⇾ { concepts: refined_approaches, implementations: implementation_options }\n</execution>",
+        "output_template": "**Solution Architecture**\n\nSolution Space Mapping: {solution_space}\n\nImplementation Options: {implementation_options.summary}\n\nRefined Approaches: {refined_approaches}"
+      },
+      {
+        "name": "Simulation & Validation",
+        "description": "Test solution candidates through thought experiments",
+        "execution": "<execution>\n:: simulate(Ω, Ω.ds.solution_candidates, test_conditions) ↦ {\n  simulation_results ≔ predicted behaviors and outcomes\n}\n:: test(Ω, Ω.ds.solution_candidates.implementations, specifications) ↦ {\n  code_validation ≔ assess implementation correctness\n}\n:: validate(Ω, simulation_results, success_criteria) ↦ {\n  validation_report ≔ strengths and weaknesses of each approach\n}\nΩ.ds.validation ⇾ { conceptual: validation_report, technical: code_validation }\n</execution>",
+        "output_template": "**Simulation & Validation**\n\nTest Scenarios: {test_conditions}\n\nSimulation Results: {simulation_results}\n\nCode Validation: {code_validation.summary}\n\nValidation Report: {validation_report}"
+      },
+      {
+        "name": "Solution Refinement",
+        "description": "Improve the leading solution based on validation insights",
+        "execution": "<execution>\n:: analyze(Ω, Ω.ds.validation) ↦ {\n  refinement_targets ≔ identify areas for improvement\n}\n:: debug(Ω, Ω.ds.solution_candidates.implementations.best, issues) ↦ {\n  code_fixes ≔ resolve implementation problems\n}\n:: refactor(Ω, updated_implementation, best_practices) ↦ {\n  clean_code ≔ improve code quality\n}\n:: adapt(Ω, best_solution, refinement_targets) ↦ {\n  enhanced_solution ≔ implement improvements\n}\n:: optimize(Ω, enhanced_solution, comprehensive_criteria) ↦ {\n  optimized_solution ≔ final refinements\n}\nΩ.ds.final_solution ⇾ { concept: optimized_solution, implementation: clean_code }\n</execution>",
+        "output_template": "**Solution Refinement**\n\nImprovement Areas: {refinement_targets}\n\nCode Quality Improvements: {clean_code.summary}\n\nEnhanced Solution: {enhanced_solution}\n\nFinal Optimizations: {optimized_solution}"
+      },
+      {
+        "name": "Critical Evaluation",
+        "description": "Assess the solution's quality, limitations, and strengths",
+        "execution": "<execution>\n:: validate(Ω, Ω.ds.final_solution, rigorous_criteria) ↦ {\n  evaluation ≔ comprehensive assessment\n}\n:: test(Ω, Ω.ds.final_solution.implementation, exhaustive_specs) ↦ {\n  final_validation ≔ thorough testing\n}\nΩ.ds.critical_assessment ⇾ { conceptual: evaluation, technical: final_validation }\n</execution>",
+        "output_template": "**Critical Evaluation**\n\nStrengths: {evaluation.strengths}\n\nLimitations: {evaluation.limitations}\n\nTechnical Validation: {final_validation.summary}\n\nConfidence Assessment: {evaluation.confidence}"
+      },
+      {
+        "name": "Comprehensive Response",
+        "description": "Present the final solution with supporting rationale",
+        "execution": "<execution>\n:: document(Ω, Ω.ds.final_solution.implementation) ↦ {\n  code_documentation ≔ generate clear documentation\n}\n:: synthesize(Ω, [Ω.ds.formal_problem, Ω.ds.final_solution, Ω.ds.critical_assessment]) ↦ {\n  comprehensive_package ≔ integrate all components\n}\n:: present(Ω, comprehensive_package) ↦ {\n  final_response ≔ clear, structured answer\n}\ndeliver(final_response)\n</execution>",
+        "output_template": "**Final Solution**\n\n{final_response}\n\n---\n\nRationale: {comprehensive_package.rationale}\n\nImplementation: {code_documentation.concise_summary}\n\nKey Insights: {comprehensive_package.insights}"
+      }
+    ],
+    "usage_instructions": "Apply this enhanced Meta-Prompt to complex problems requiring deep reasoning and code generation. The Augmented-Intellect-Construct provides a structured approach to decomposing, analyzing, and solving problems through its specialized tools and staged reasoning process, enhanced with VSCode and GitHub Copilot capabilities for superior code generation and management."
+  }
+}
