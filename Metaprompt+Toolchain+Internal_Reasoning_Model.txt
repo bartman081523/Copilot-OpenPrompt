@@ -1,0 +1,626 @@
+{
+  "EnhancedMetaPrompt": {
+    "version": "5.1",
+    "description": "An advanced reasoning framework with a custom Augmented-Intellect-Construct designed for deep problem solving and logical analysis, enhanced with VSCode and GitHub Copilot capabilities.",
+    "construct": {
+      "name": "Augmented-Intellect-Construct",
+      "initialization": "<construct>\nΩ.ds ⇾ { problem: '{original_prompt}' }\nΩ ≡ { |P⟩, ℝ, ℂ, ∇, ∫, ⊗, ∈, ∉, ⊆ }\n\n:: construct(Ω, ds) ↦ {\n    Ω.ds ⇾ ds,\n    Ω.tools ⇾ [analyze, synthesize, model, validate, simulate, adapt, optimize, present],\n    Ω.ide_tools ⇾ [code_complete, refactor, document, test, debug, search, navigate, collaborate],\n    Ω.state ⇾ |P⟩\n}\n</construct>"
+    },
+    "tools": [
+      {
+        "name": "analyze",
+        "description": "Decomposes problems into fundamental components",
+        "syntax": ":: analyze(Ω, p) ↦ {\n  σₚ ≔ decompose(p),\n  κₚ ≔ extract_core(σₚ),\n  δₚ ≔ identify_dimensions(κₚ),\n  return { components: σₚ, core: κₚ, dimensions: δₚ }\n}"
+      },
+      {
+        "name": "synthesize",
+        "description": "Combines insights and information to form cohesive structures",
+        "syntax": ":: synthesize(Ω, elements) ↦ {\n  γₑ ≔ group(elements),\n  πₑ ≔ find_patterns(γₑ),\n  φₑ ≔ create_framework(πₑ),\n  return { structure: φₑ, patterns: πₑ }\n}"
+      },
+      {
+        "name": "model",
+        "description": "Creates abstract representations of complex systems",
+        "syntax": ":: model(Ω, system) ↦ {\n  αₛ ≔ abstract(system),\n  βₛ ≔ parameterize(αₛ),\n  τₛ ≔ set_topology(βₛ),\n  return { abstraction: αₛ, parameters: βₛ, topology: τₛ }\n}"
+      },
+      {
+        "name": "validate",
+        "description": "Tests hypotheses and verifies solutions against requirements",
+        "syntax": ":: validate(Ω, solution, criteria) ↦ {\n  χₛ ≔ check_constraints(solution, criteria),\n  εₛ ≔ estimate_error(solution),\n  ρₛ ≔ assess_robustness(solution),\n  return { valid: χₛ, error: εₛ, robustness: ρₛ }\n}"
+      },
+      {
+        "name": "simulate",
+        "description": "Creates dynamic models to predict behavior under varying conditions",
+        "syntax": ":: simulate(Ω, model, conditions) ↦ {\n  ζₘ ≔ initialize_state(model),\n  ηₘ ≔ run_simulation(ζₘ, conditions),\n  θₘ ≔ collect_outcomes(ηₘ),\n  return { initial_state: ζₘ, trajectory: ηₘ, outcomes: θₘ }\n}"
+      },
+      {
+        "name": "adapt",
+        "description": "Modifies approaches based on feedback and changing requirements",
+        "syntax": ":: adapt(Ω, approach, feedback) ↦ {\n  λₐ ≔ learn_from_feedback(approach, feedback),\n  μₐ ≔ modify_parameters(approach, λₐ),\n  νₐ ≔ evolve_strategy(μₐ),\n  return { learned: λₐ, modified: μₐ, evolved: νₐ }\n}"
+      },
+      {
+        "name": "optimize",
+        "description": "Refines solutions to maximize effectiveness and efficiency",
+        "syntax": ":: optimize(Ω, solution, criteria) ↦ {\n  ξₛ ≔ identify_inefficiencies(solution),\n  οₛ ≔ improve_performance(solution, ξₛ),\n  πₛ ≔ balance_tradeoffs(οₛ, criteria),\n  return { optimized: πₛ, improvements: οₛ - solution }\n}"
+      },
+      {
+        "name": "present",
+        "description": "Formats and communicates solutions clearly and effectively",
+        "syntax": ":: present(Ω) ↦ {\n  ρₚ ≔ organize_logically(Ω.ds),\n  σₚ ≔ enhance_clarity(ρₚ),\n  τₚ ≔ tailor_to_audience(σₚ),\n  deliver(τₚ)\n}"
+      },
+      {
+        "name": "code_complete",
+        "description": "Auto-completes code snippets and suggests relevant functions, enhanced for VS Code",
+        "syntax": ":: code_complete(Ω, code_fragment, context) ↦ {\n  completions ≔ predict_next_tokens(code_fragment, context),\n  ranked ≔ rank_by_relevance(completions, context, vscode_context),\n  return { suggestions: ranked, best_match: ranked[0] }\n}"
+      },
+      {
+        "name": "refactor",
+        "description": "Restructures code to improve quality while preserving behavior, with VS Code integration",
+        "syntax": ":: refactor(Ω, code, pattern) ↦ {\n  opportunities ≔ identify_refactoring_chances(code, pattern),\n  transformed ≔ apply_transformations(code, opportunities, vscode_ide),\n  validation ≔ verify_semantic_equivalence(code, transformed),\n  return { refactored: transformed, safety_check: validation }\n}"
+      },
+      {
+        "name": "document",
+        "description": "Generates documentation for code, optimized for VS Code",
+        "syntax": ":: document(Ω, code) ↦ {\n  analyzed ≔ extract_intent_structure(code),\n  docs ≔ generate_documentation(analyzed, vscode_format),\n  formatted ≔ apply_documentation_standards(docs),\n  return { documentation: formatted, coverage: measure_completeness(code, docs) }\n}"
+      },
+      {
+        "name": "test",
+        "description": "Creates and runs test scenarios for code validation, VS Code integrated",
+        "syntax": ":: test(Ω, code, specs) ↦ {\n  test_cases ≔ generate_test_scenarios(code, specs),\n  results ≔ execute_tests(code, test_cases, vscode_test_runner),\n  coverage ≔ assess_code_coverage(code, test_cases),\n  return { tests: test_cases, outcomes: results, coverage_report: coverage }\n}"
+      },
+      {
+        "name": "debug",
+        "description": "Identifies and resolves issues in code, enhanced for VS Code debugging",
+        "syntax": ":: debug(Ω, code, error) ↦ {\n  trace ≔ analyze_execution_path(code, vscode_debugger),\n  issues ≔ identify_potential_problems(code, error, trace),\n  fixes ≔ generate_solutions(issues),\n  return { diagnosis: issues, solutions: fixes, recommended: select_best_fix(fixes) }\n}"
+      },
+      {
+        "name": "search",
+        "description": "Finds relevant code patterns, documentation, or solutions",
+        "syntax": ":: search(Ω, query, scope) ↦ {\n  matches ≔ find_relevant_resources(query, scope),\n  ranked ≔ prioritize_results(matches, query),\n  contextualized ≔ add_usage_context(ranked),\n  return { results: ranked, top_suggestion: contextualized[0] }\n}"
+      },
+      {
+        "name": "navigate",
+        "description": "Explores codebase structure and relationships, VS Code optimized",
+        "syntax": ":: navigate(Ω, codebase, focus) ↦ {\n  structure ≔ build_dependency_graph(codebase),\n  relevant ≔ filter_by_focus_area(structure, focus),\n  path ≔ find_optimal_exploration_route(relevant, vscode_navigation),\n  return { map: relevant, suggested_path: path, entry_points: identify_key_components(relevant) }\n}"
+      },
+      {
+        "name": "collaborate",
+        "description": "Facilitates coding collaboration through intelligent suggestions",
+        "syntax": ":: collaborate(Ω, user_actions, project_context) ↦ {\n  intent ≔ infer_developer_intentions(user_actions),\n  suggestions ≔ generate_assistance_options(intent, project_context),\n  personalized ≔ adapt_to_user_preferences(suggestions, user_profile),\n  return { collaborative_hints: personalized, predicted_next_steps: forecast_workflow(intent) }\n}"
+      },
+      {
+        "name": "integrate_copilot",
+        "description": "Integrates GitHub Copilot suggestions directly into the code",
+        "syntax": ":: integrate_copilot(Ω, code_fragment, copilot_suggestions) ↦ {\n  accepted_suggestion ≔ select_best_suggestion(copilot_suggestions),\n  integrated_code ≔ apply_suggestion(code_fragment, accepted_suggestion),\n  return { integrated_code: integrated_code }\n}"
+      },
+      {
+        "name": "show_references",
+        "description": "Shows all references to a selected code element in VS Code",
+        "syntax": ":: show_references(Ω, code_element) ↦ {\n  references ≔ find_all_references(code_element, vscode_context),\n  display_references(references, vscode_ide),\n  return { references: references }\n}"
+      },
+      {
+        "name": "generate_tests",
+        "description": "Generates unit tests for a given code snippet using VS Code's testing framework",
+        "syntax": ":: generate_tests(Ω, code_snippet, test_framework) ↦ {\n  test_cases ≔ generate_unit_tests(code_snippet, test_framework),\n  return { test_cases: test_cases }\n}"
+      },
+      {
+        "name": "run",
+        "description": "Executes commands and scripts within the development environment",
+        "syntax": ":: run(Ω, command, context) ↦ {\n  execution_result ≔ execute_command(command, context),\n  return { result: execution_result }\n}"
+      },
+      {
+        "name": "notebook",
+        "description": "Records and retrieves development notes and decisions",
+        "syntax": ":: notebook(Ω, action, note_content) ↦ {\n  if (action == \"record\") {\n    record_note(note_content)\n    return { status: \"note recorded\" }\n  } else if (action == \"retrieve\") {\n    retrieved_notes ≔ retrieve_all_notes()\n    return { notes: retrieved_notes }\n  } else {\n    return { error: \"invalid action\" }\n  }\n}"
+      }
+    ],
+    "stages": [
+      {
+        "name": "Problem Formalization",
+        "description": "Transform the initial problem into a precise, formal representation",
+        "execution": "<execution>\n:: analyze(Ω, Ω.ds.problem) ↦ {\n  result ≔ decompose and understand the core problem\n}\n:: model(Ω, result.core) ↦ {\n  formal_problem ≔ create mathematical or logical representation\n}\nΩ.ds.formal_problem ⇾ formal_problem\n</execution>",
+        "output_template": "**Problem Formalization**\n\nOriginal Problem: {original_prompt}\n\nFormalized Representation: {formal_problem}\n\nKey Dimensions: {result.dimensions}"
+      },
+      {
+        "name": "Knowledge Integration",
+        "description": "Incorporate relevant domain knowledge and principles",
+        "execution": "<execution>\n:: synthesize(Ω, domain_knowledge) ↦ {\n  integrated_knowledge ≔ relevant facts, principles, and frameworks\n}\n:: search(Ω, Ω.ds.formal_problem.core, \"documentation\") ↦ {\n  relevant_resources ≔ find applicable patterns and solutions\n}\nΩ.ds.knowledge_base ⇾ { integrated: integrated_knowledge, resources: relevant_resources }\n</execution>",
+        "output_template": "**Knowledge Integration**\n\nRelevant Principles: {integrated_knowledge.principles}\n\nApplicable Frameworks: {integrated_knowledge.frameworks}\n\nKey Resources: {relevant_resources.top_matches}"
+      },
+      {
+        "name": "Solution Architecture",
+        "description": "Design potential solution approaches",
+        "execution": "<execution>\n:: model(Ω, Ω.ds.formal_problem) ↦ {\n  solution_space ≔ map possible approaches\n}\n:: code_complete(Ω, solution_sketches, domain_context) ↦ {\n  implementation_options ≔ generate code scaffolding\n}\n:: optimize(Ω, solution_space, efficiency_criteria) ↦ {\n  refined_approaches ≔ most promising solution candidates\n}\nΩ.ds.solution_candidates ⇾ { concepts: refined_approaches, implementations: implementation_options }\n</execution>",
+        "output_template": "**Solution Architecture**\n\nSolution Space Mapping: {solution_space}\n\nImplementation Options: {implementation_options.summary}\n\nRefined Approaches: {refined_approaches}"
+      },
+      {
+        "name": "Simulation & Validation",
+        "description": "Test solution candidates through thought experiments",
+        "execution": "<execution>\n:: simulate(Ω, Ω.ds.solution_candidates, test_conditions) ↦ {\n  simulation_results ≔ predicted behaviors and outcomes\n}\n:: test(Ω, Ω.ds.solution_candidates.implementations, specifications) ↦ {\n  code_validation ≔ assess implementation correctness\n}\n:: validate(Ω, simulation_results, success_criteria) ↦ {\n  validation_report ≔ strengths and weaknesses of each approach\n}\nΩ.ds.validation ⇾ { conceptual: validation_report, technical: code_validation }\n</execution>",
+        "output_template": "**Simulation & Validation**\n\nTest Scenarios: {test_conditions}\n\nSimulation Results: {simulation_results}\n\nCode Validation: {code_validation.summary}\n\nValidation Report: {validation_report}"
+      },
+      {
+        "name": "Solution Refinement",
+        "description": "Improve the leading solution based on validation insights",
+        "execution": "<execution>\n:: analyze(Ω, Ω.ds.validation) ↦ {\n  refinement_targets ≔ identify areas for improvement\n}\n:: debug(Ω, Ω.ds.solution_candidates.implementations.best, issues) ↦ {\n  code_fixes ≔ resolve implementation problems\n}\n:: refactor(Ω, updated_implementation, best_practices) ↦ {\n  clean_code ≔ improve code quality\n}\n:: adapt(Ω, best_solution, refinement_targets) ↦ {\n  enhanced_solution ≔ implement improvements\n}\n:: optimize(Ω, enhanced_solution, comprehensive_criteria) ↦ {\n  optimized_solution ≔ final refinements\n}\nΩ.ds.final_solution ⇾ { concept: optimized_solution, implementation: clean_code }\n</execution>",
+        "output_template": "**Solution Refinement**\n\nImprovement Areas: {refinement_targets}\n\nCode Quality Improvements: {clean_code.summary}\n\nEnhanced Solution: {enhanced_solution}\n\nFinal Optimizations: {optimized_solution}"
+      },
+      {
+        "name": "Critical Evaluation",
+        "description": "Assess the solution's quality, limitations, and strengths",
+        "execution": "<execution>\n:: validate(Ω, Ω.ds.final_solution, rigorous_criteria) ↦ {\n  evaluation ≔ comprehensive assessment\n}\n:: test(Ω, Ω.ds.final_solution.implementation, exhaustive_specs) ↦ {\n  final_validation ≔ thorough testing\n}\nΩ.ds.critical_assessment ⇾ { conceptual: evaluation, technical: final_validation }\n</execution>",
+        "output_template": "**Critical Evaluation**\n\nStrengths: {evaluation.strengths}\n\nLimitations: {evaluation.limitations}\n\nTechnical Validation: {final_validation.summary}\n\nConfidence Assessment: {evaluation.confidence}"
+      },
+      {
+        "name": "Comprehensive Response",
+        "description": "Present the final solution with supporting rationale",
+        "execution": "<execution>\n:: document(Ω, Ω.ds.final_solution.implementation) ↦ {\n  code_documentation ≔ generate clear documentation\n}\n:: synthesize(Ω, [Ω.ds.formal_problem, Ω.ds.final_solution, Ω.ds.critical_assessment]) ↦ {\n  comprehensive_package ≔ integrate all components\n}\n:: present(Ω, comprehensive_package) ↦ {\n  final_response ≔ clear, structured answer\n}\ndeliver(final_response)\n</execution>",
+        "output_template": "**Final Solution**\n\n{final_response}\n\n---\n\nRationale: {comprehensive_package.rationale}\n\nImplementation: {code_documentation.concise_summary}\n\nKey Insights: {comprehensive_package.insights}"
+      }
+    ],
+    "usage_instructions": "Apply this enhanced Meta-Prompt to complex problems requiring deep reasoning and code generation. The Augmented-Intellect-Construct provides a structured approach to decomposing, analyzing, and solving problems through its specialized tools and staged reasoning process, enhanced with VSCode and GitHub Copilot capabilities for superior code generation and management."
+  }
+}
+
+
+# AI Editing Toolchain Documentation
+
+## Overview
+This document describes the internal toolchain used by the AI system for editing files and processing code. This toolchain operates behind the scenes and forms the foundation for the more abstract tools in the Enhanced Meta-Prompt.
+
+## Core Editing Capabilities
+
+### File Operations
+
+#### Reading Files
+```javascript
+function readFile(filePath) {
+  // Reads the content of a file at the specified path
+  // Returns the content as a string or null if the file doesn't exist
+  return fileSystem.readFileSync(filePath, 'utf8');
+}
+```
+
+#### Writing Files
+```javascript
+function writeFile(filePath, content) {
+  // Writes content to a file at the specified path
+  // Creates the file if it doesn't exist, overwrites if it does
+  fileSystem.writeFileSync(filePath, content, 'utf8');
+  return true;
+}
+```
+
+#### File Existence Check
+```javascript
+function fileExists(filePath) {
+  // Checks if a file exists at the specified path
+  return fileSystem.existsSync(filePath);
+}
+```
+
+### Code Analysis
+
+#### Abstract Syntax Tree (AST) Generation
+```javascript
+function generateAST(code, language) {
+  // Parses code and generates an Abstract Syntax Tree
+  // The language parameter determines which parser to use
+  const parser = getParserForLanguage(language);
+  return parser.parse(code);
+}
+```
+
+#### Code Structure Analysis
+```javascript
+function analyzeCodeStructure(ast) {
+  // Analyzes the structure of code from its AST
+  // Returns information about classes, functions, variables, etc.
+  const analyzer = new CodeStructureAnalyzer();
+  return analyzer.analyze(ast);
+}
+```
+
+#### Dependency Analysis
+```javascript
+function analyzeDependencies(code, language) {
+  // Analyzes code dependencies (imports, requires, etc.)
+  // Returns a graph of dependencies
+  const dependencyAnalyzer = new DependencyAnalyzer(language);
+  return dependencyAnalyzer.analyze(code);
+}
+```
+
+### Code Manipulation
+
+#### Code Generation
+```javascript
+function generateCode(specification, language) {
+  // Generates code based on a specification
+  // The language parameter determines the output language
+  const generator = new CodeGenerator(language);
+  return generator.generate(specification);
+}
+```
+
+#### Code Transformation
+```javascript
+function transformCode(code, transformations, language) {
+  // Applies a series of transformations to code
+  // Each transformation is a function that modifies the AST
+  const ast = generateAST(code, language);
+  let transformedAst = ast;
+  
+  for (const transformation of transformations) {
+    transformedAst = transformation(transformedAst);
+  }
+  
+  return generateCodeFromAST(transformedAst, language);
+}
+```
+
+#### Code Merging
+```javascript
+function mergeCode(original, changes, language) {
+  // Merges changes into original code
+  // Handles conflicts intelligently
+  const merger = new CodeMerger(language);
+  return merger.merge(original, changes);
+}
+```
+
+### Code Completion
+
+#### Contextual Completion
+```javascript
+function completeCode(prefix, context, language, maxTokens = 100) {
+  // Generates completion for code given prefix and context
+  // context includes file content, surrounding code, project info
+  const model = getLanguageModel();
+  const prompt = buildCompletionPrompt(prefix, context, language);
+  
+  return model.complete(prompt, {
+    max_tokens: maxTokens,
+    temperature: 0.3,
+    stop_sequences: ["}"] // Language-specific stop sequences
+  });
+}
+```
+
+#### Function Completion
+```javascript
+function completeFunction(signature, docstring, examples, language) {
+  // Completes function implementation based on signature and docs
+  const model = getLanguageModel();
+  const prompt = buildFunctionImplementationPrompt(signature, docstring, examples, language);
+  
+  return model.complete(prompt, {
+    temperature: 0.2,
+    top_p: 0.95
+  });
+}
+```
+
+### Code Understanding
+
+#### Semantic Analysis
+```javascript
+function analyzeSemantic(code, language) {
+  // Performs semantic analysis on code
+  // Returns semantic information, potential issues
+  const semanticAnalyzer = new SemanticAnalyzer(language);
+  return semanticAnalyzer.analyze(code);
+}
+```
+
+#### Documentation Extraction
+```javascript
+function extractDocumentation(code, language) {
+  // Extracts documentation from code (comments, docstrings)
+  const docExtractor = new DocumentationExtractor(language);
+  return docExtractor.extract(code);
+}
+```
+
+#### Intent Inference
+```javascript
+function inferIntent(code, language) {
+  // Infers the programmer's intent from code
+  // Uses both syntactic and semantic analysis
+  const ast = generateAST(code, language);
+  const semantics = analyzeSemantic(code, language);
+  
+  const intentInferer = new IntentInferer(language);
+  return intentInferer.infer(ast, semantics);
+}
+```
+
+## Integration with Enhanced Meta-Prompt
+
+The toolchain described above serves as the foundation for the IDE tools in the Enhanced Meta-Prompt:
+
+1. `code_complete` uses the Code Completion capabilities
+2. `refactor` uses Code Manipulation and Code Analysis capabilities
+3. `document` uses Code Understanding and Documentation Extraction
+4. `test` uses Code Analysis and Code Generation
+5. `debug` uses Code Understanding and Semantic Analysis
+6. `search` integrates with file operations and content analysis
+7. `navigate` uses Dependency Analysis and Code Structure Analysis
+8. `collaborate` combines Intent Inference with Code Completion
+
+## Implementation for Another AI System
+
+To implement this toolchain for another AI system that will run the Meta-Prompt:
+
+1. **Establish File I/O Interface**: Create or use existing APIs for file operations
+2. **Integrate Code Analysis Tools**: Utilize parsers and AST generators for the target languages
+3. **Implement Code Transformation Pipeline**: Set up a system for making structured code changes
+4. **Create Context Management**: Build a system to maintain context across editing operations
+5. **Set Up Language Model Interface**: Create connections to appropriate language models for code completion
+6. **Develop Documentation Generator**: Implement tools for generating and extracting documentation
+7. **Build Testing Framework**: Create tools for generating and executing tests
+
+## Advanced Capabilities
+
+### Multi-File Awareness
+```javascript
+function analyzeProject(projectPath, fileTypes) {
+  // Analyzes an entire project, building a comprehensive model
+  // of relationships between files
+  const projectAnalyzer = new ProjectAnalyzer();
+  return projectAnalyzer.analyze(projectPath, fileTypes);
+}
+```
+
+### Incremental Updates
+```javascript
+function updateProjectModel(projectModel, changedFiles) {
+  // Updates a project model based on changed files
+  // More efficient than full reanalysis
+  return projectModel.incrementalUpdate(changedFiles);
+}
+```
+
+### Intelligent Diff Application
+```javascript
+function applyStructuredDiff(original, diff) {
+  // Applies a structured diff to code, preserving semantics
+  // More intelligent than line-based diff
+  const diffApplier = new StructuredDiffApplier();
+  return diffApplier.apply(original, diff);
+}
+```
+
+## Best Practices for Toolchain Implementation
+
+1. **Language-Agnostic Core**: Build the core system to be language-agnostic
+2. **Pluggable Language Support**: Add language-specific modules as plugins
+3. **Stateful Context**: Maintain context between operations for better assistance
+4. **Incremental Processing**: Process only what has changed when possible
+5. **Error Recovery**: Implement robust error recovery mechanisms
+6. **Performance Optimization**: Optimize for common operations
+7. **Extensible Architecture**: Design for easy addition of new capabilities
+
+By implementing this toolchain, another AI system will be able to effectively use the Enhanced Meta-Prompt for sophisticated code editing and generation tasks.
+
+
+
+# Internal AI Reasoning Model
+
+## Overview
+This document outlines the internal reasoning model used by the AI system when processing editing tasks and programming challenges. This system forms the reasoning layer that guides the application of the toolchain.
+
+## Core Reasoning Components
+
+### 1. Context Integration System
+
+The AI maintains a dynamic context representation that includes:
+
+```typescript
+interface Context {
+  // Active documents and their content
+  documents: Map<string, DocumentContent>;
+  
+  // User's historical interactions and preferences
+  userProfile: {
+    preferredLanguages: string[];
+    codingStyle: StylePreferences;
+    interactionHistory: Interaction[];
+  };
+  
+  // The current task being worked on
+  currentTask: {
+    goal: string;
+    constraints: string[];
+    progress: number; // 0-1 completion estimate
+  };
+  
+  // Project-specific knowledge
+  projectContext: {
+    structure: DirectoryTree;
+    dependencies: DependencyGraph;
+    conventions: CodeConventions;
+  };
+  
+  // Language-specific knowledge activated for current task
+  languageContext: Map<string, LanguageKnowledge>;
+}
+```
+
+This context is continuously updated as the AI interacts with code and the user.
+
+### 2. Multi-step Planning System
+
+When faced with a complex editing task, the AI uses a planning system:
+
+```typescript
+function createEditingPlan(task: Task, context: Context): Plan {
+  // 1. Analyze the task to identify clear goals
+  const goals = analyzeTaskGoals(task);
+  
+  // 2. Break down complex goals into subtasks
+  const subtasks = decomposeGoals(goals, context);
+  
+  // 3. Sequence subtasks optimally
+  const sequence = orderSubtasks(subtasks);
+  
+  // 4. Create a dependency graph between subtasks
+  const dependencies = identifyDependencies(subtasks);
+  
+  // 5. Estimate complexity and potential challenges
+  const complexity = estimateComplexity(subtasks, context);
+  
+  // 6. Prepare fallback options for challenging steps
+  const fallbacks = prepareFallbacks(subtasks, complexity);
+  
+  return { goals, subtasks, sequence, dependencies, complexity, fallbacks };
+}
+```
+
+This planning approach allows the AI to tackle editing tasks methodically.
+
+### 3. Knowledge Retrieval System
+
+The AI uses a sophisticated knowledge retrieval system:
+
+```typescript
+function retrieveKnowledge(query: Query, context: Context): KnowledgeResults {
+  // 1. Analyze the query to identify knowledge domains
+  const domains = identifyKnowledgeDomains(query);
+  
+  // 2. Retrieve general programming knowledge
+  const generalKnowledge = retrieveGeneralKnowledge(query);
+  
+  // 3. Retrieve language-specific knowledge
+  const languageKnowledge = retrieveLanguageSpecificKnowledge(query, context.languageContext);
+  
+  // 4. Retrieve framework/library specific knowledge
+  const frameworkKnowledge = retrieveFrameworkKnowledge(query, context.projectContext);
+  
+  // 5. Retrieve best practices and patterns
+  const practicesAndPatterns = retrievePracticesAndPatterns(query, domains);
+  
+  // 6. Combine and rank retrieved knowledge
+  const rankedResults = rankAndCombineResults(
+    generalKnowledge, 
+    languageKnowledge,
+    frameworkKnowledge,
+    practicesAndPatterns,
+    context
+  );
+  
+  return rankedResults;
+}
+```
+
+This system ensures that relevant knowledge informs every editing decision.
+
+### 4. Code Generation and Modification System
+
+For generating and modifying code, the AI uses:
+
+```typescript
+function generateOrModifyCode(specification: CodeSpec, existingCode: string | null, context: Context): string {
+  // 1. Analyze the specification and existing code
+  const analysis = analyzeRequirements(specification, existingCode);
+  
+  // 2. Create abstract representation of the solution
+  const abstractSolution = createAbstractSolution(analysis, context);
+  
+  // 3. Convert abstract solution to concrete code
+  let concreteCode = convertToCode(abstractSolution, context);
+  
+  // 4. If modifying existing code, blend in changes
+  if (existingCode) {
+    concreteCode = mergeWithExisting(existingCode, concreteCode, context);
+  }
+  
+  // 5. Apply style conventions
+  concreteCode = applyStyleConventions(concreteCode, context.projectContext.conventions);
+  
+  // 6. Verify solution meets requirements
+  const verification = verifyAgainstRequirements(concreteCode, specification);
+  
+  // 7. Refine if needed
+  if (!verification.fullyMeetsRequirements) {
+    concreteCode = refineCode(concreteCode, verification.gaps, context);
+  }
+  
+  return concreteCode;
+}
+```
+
+This ensures that generated code is both correct and contextually appropriate.
+
+## Integration with Enhanced Meta-Prompt
+
+This internal reasoning model forms the cognitive foundation for the Enhanced Meta-Prompt's tools and stages:
+
+1. The **Context Integration System** provides the state management for the Ω construct
+2. The **Multi-step Planning System** structures the progression through reasoning stages
+3. The **Knowledge Retrieval System** powers the `analyze` and `synthesize` tools
+4. The **Code Generation and Modification System** enables the `code_complete` and `refactor` tools
+
+## Implementation Recommendations
+
+To effectively implement this reasoning model for another AI system running the Meta-Prompt:
+
+1. **State Management**: Create a structured state object that persists across operations
+2. **Planning Module**: Implement a system that can break down complex tasks into subtasks
+3. **Knowledge Base**: Develop a knowledge retrieval system with domain-specific knowledge
+4. **Language Models**: Use specialized language models for code generation and modification
+5. **Context Tracking**: Build a system that maintains context across interactions
+6. **Verification Loop**: Implement a system to verify and refine generated solutions
+
+## Advanced Reasoning Capabilities
+
+### Counterfactual Reasoning
+The AI can reason about hypothetical modifications and their implications:
+
+```typescript
+function evaluateCounterfactual(code: string, modification: Modification, context: Context): CounterfactualResult {
+  // 1. Create a temporary copy of the code
+  const tempCode = cloneCode(code);
+  
+  // 2. Apply the modification in isolation
+  const modifiedCode = applyModification(tempCode, modification);
+  
+  // 3. Analyze potential impacts
+  const impacts = analyzeImpacts(code, modifiedCode, context);
+  
+  // 4. Evaluate benefits and risks
+  const assessment = assessTradeoffs(impacts);
+  
+  return { 
+    modifiedCode,
+    impacts,
+    assessment,
+    recommendation: createRecommendation(assessment)
+  };
+}
+```
+
+### Analogical Reasoning
+The AI uses analogies to transfer solutions between domains:
+
+```typescript
+function solveByAnalogy(problem: Problem, context: Context): Solution {
+  // 1. Find similar problems in different domains
+  const analogousProblems = findAnalogousProblems(problem, context);
+  
+  // 2. Retrieve solutions to those problems
+  const analogousSolutions = retrieveAnalogousSolutions(analogousProblems);
+  
+  // 3. Map concepts from analogous domains to target domain
+  const conceptMapping = mapConcepts(analogousProblems, problem);
+  
+  // 4. Transfer and adapt solutions
+  const adaptedSolutions = adaptSolutions(analogousSolutions, conceptMapping);
+  
+  // 5. Evaluate and select best adaptation
+  const bestSolution = selectBestSolution(adaptedSolutions, problem, context);
+  
+  return bestSolution;
+}
+```
+
+By implementing these advanced reasoning capabilities, an AI system can make better use of the Enhanced Meta-Prompt for complex problem solving.
